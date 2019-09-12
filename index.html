@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bon Iver Quiz</title>
+    <link rel="stylesheet" href="main.css" type="text/css">
+  </head>
+  <body>
+    <div class="outer-container">
+        <div class="container">
+            <h1>How well do you know Bon Iver?</h1>
+            <button class="start-button js-start-button">Start the Quiz!</button>
+         </div>
+    </div>
+    <div class="outer-container">
+        <div class="question-container container">
+            <form id="js-question-form">
+                <p>Who is the founding member of Bon Iver?</p>
+                <div>
+                    <input type='radio' id='answer1' name='question1'>
+                    <label for='answer1'>Justin Vernon</label>
+                </div>
+                <div>
+                    <input type='radio' id='matthealy' name='question1'>
+                    <label for='matthealy'>Matt Healy</label>
+                </div>
+                <div>
+                    <input type='radio' id='francis' name='question1'>
+                    <label for='francis'>Francis Starlite</label>
+                </div>
+                <div>
+                    <input type='radio' id='kanye' name='question1'>
+                    <label for='kanye'>Kanye West</label>
+                </div>
+            </form>
+            <button class="submit js-submit">Submit</button>
+        </div>
+        <p>Question 1/5</p>
+        <p>Score 0%</p>
+    </div>
+
+    <div class="outer-container">
+        <div class="container">
+            <h2>Correct!</h2>
+            <button class="next-question js-next">Next Question</button>
+        </div>
+        <p>Question 1/5</p>
+        <p>Score 10%</p>
+    </div>
+    <div class="outer-container">
+            <div class="container">
+                <h2>Sorry! That's incorrect</h2>
+                <button class="js-show-correct show-correct">Show the Answer</button>
+                <button class="next-question js-next">Next Question</button>
+                <p class="correct-answer">Justin Vernon</p>
+            </div>
+            <p>Question 1/5</p>
+            <p>Score 0%</p>
+        </div>
+        <div class="outer-container">
+                <div class="container">
+                    <h2>Congrats! You're insufferable!</h2>
+                    <h3>Final Score: 80%</h3>
+                    <button class="js-restart restart">Restart Quiz</button>
+                </div>
+                <p class="credits">Quiz by Anthony. I do not own images.</p>
+            </div>
+  </body>
+</html>
