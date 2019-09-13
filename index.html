@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Bon Iver Quiz</title>
     <link rel="stylesheet" href="main.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
   </head>
   <body>
 
-    
+
     <!--start page-->
     <div class="outer-container">
         <div class="container">
@@ -22,6 +24,7 @@
     <div class="outer-container">
         <div class="question-container container">
             <form id="js-question-form">
+                <fieldset>
                 <p>Who is the founding member of Bon Iver?</p>
                 <div>
                     <input type='radio' id='answer1' name='question1'>
@@ -39,6 +42,7 @@
                     <input type='radio' id='kanye' name='question1'>
                     <label for='kanye'>Kanye West</label>
                 </div>
+                </fieldset> 
             </form>
             <button class="submit js-submit">Submit</button>
         </div>
@@ -80,5 +84,6 @@
                 </div>
                 <p class="credits">Quiz by Anthony. I do not own images.</p>
             </div>
+  <script src="index.js"></script>       
   </body>
 </html>
