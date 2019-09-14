@@ -8,36 +8,45 @@ function startQuiz() {
 }
 
 function displayQuestion() {
-    //this function should display a new question and options
+    //this function should display a new question
     let question = STORE.questions[STORE.currentQuestion].question;
     $('.js-start-page').replaceWith(`<div class="question-container container">
-    <form id="js-question-form">
+    <form id="js-question-form" type='submit' required>
         <fieldset>
-        <p class='js-question'>${question}</p>
-        <p>Question: ${STORE.currentQuestion+1}</p>
-        <p>Score ${STORE.score}/5</p>`);
+            <p class='js-question'>${question}</p>
+        
+        </fieldset> 
+        <button class="submit js-submit">Submit</button>
+    </form>
+    <p>Question: ${STORE.currentQuestion+1}</p>
+    <p>Score ${STORE.score}/5</p>`);
         handleOptions();
         updateCurrentQuestion();
+        showResult();
 };
 
 function handleOptions() {
-    
+    // this function shows the options
     for (let i=0; i<STORE.questions[STORE.currentQuestion].options.length; i++){
         let option = STORE.questions[STORE.currentQuestion].options[i];
         $('.js-question').append(`<div>
         <input type='radio' id='${option}' name='question'>
-        <label for='answer1'>${option}</label>
+        <label for='${option}'>${option}</label>
     </div>`)};    
 };
 
-
-function checkAnswer() {
-    //this function should check the user input and return either true or false
-}
-
-
 function showResult() {
-    //depending on result of checkAnswer() return either the correct or incorrect result
+    //checks answer and should return either the correct or incorrect result
+    let correctAnswer = STORE.questions[STORE.currentQuestion].answer;
+    let userAnswer = $('.radio').val();
+    $('.js-submit').click(function(e) {
+        e.preventDefault();
+        if (userAnswer == correctAnswer) {
+            console.log('Congrats!')
+        } else {
+            console.log('BOOO');
+        };
+    });
 }
 
 
