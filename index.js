@@ -18,8 +18,9 @@ function displayQuestion() {
         </fieldset> 
         <button class="submit js-submit">Submit</button>
     </form>
-    <p>Question: ${STORE.currentQuestion+1}</p>
-    <p>Score ${STORE.score}/5</p>`);
+    </div>
+    <p>Question: ${STORE.currentQuestion+1}/5</p>
+    <p>Score ${STORE.score}%</p>`);
         handleOptions();
         showResult();
         updateCurrentQuestion();
@@ -30,11 +31,12 @@ function handleOptions() {
     // this function shows the options
     for (let i=0; i<STORE.questions[STORE.currentQuestion].options.length; i++){
         let option = STORE.questions[STORE.currentQuestion].options[i];
-        $('.js-question').append(`<div>
+        $(`<div class='options'>
         <input type='radio' id=${option} name='option' value='${option}'>
         <label for='${option}'>${option}</label>
-    </div>`)};    
+    </div>`).insertAfter('.js-question')};    
 };
+
 
 function showResult() {
     //checks answer and should return either the correct or incorrect result
@@ -46,14 +48,23 @@ function showResult() {
         console.log(userAnswer);
         if (userAnswer == correctAnswer) {
             updateCurrentScore();
-            $('.question-container').replaceWith(`<div class="container">
+            $('.outer-container').replaceWith(`<div class="outer-container"><div class="container">
             <h2>Correct!</h2>
             <button class="next-question js-next">Next Question</button>
         </div>
-        <p>Question 1/5</p>
-        <p>Score ${STORE.score}/5</p>
+        <p>Question ${STORE.currentQuestion}/5</p>
+        <p>Score ${STORE.score}%</p>
     </div>`);} 
     else {
+        $('.outer-container').replaceWith(`<div class="outer-container"><div class="container">
+        <h2>Sorry! That's incorrect</h2>
+        <button class="js-show-correct show-correct">Show the Answer</button>
+        <button class="next-question js-next">Next Question</button>
+        <p class="correct-answer">Justin Vernon</p>
+    </div>
+    <p>Question ${STORE.currentQuestion}/5</p>
+    <p>Score ${STORE.score}%</p>
+</div>`)
             console.log('BOOO');
         };
     });
@@ -71,7 +82,7 @@ function showFinalScore() {
 
 function updateCurrentScore() {
     //adds to the score. run this function IF they get it right
-    STORE.score += 1;
+    STORE.score += 20;
 }
 
 function updateCurrentQuestion() {
