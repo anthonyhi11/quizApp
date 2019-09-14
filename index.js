@@ -1,89 +1,75 @@
-function renderPage() {
+let i = 0;
 
-}
-const i=0;
-const j=0;
-const k=1;
-const l=2;
-const m=3;
-
-function increaseI() { 
-    i++;
-}
-
-function handleStartQuiz() {
-    $('.js-start-button').click(function(event) {
-        event.preventDefault();
-        $('.js-start-page').replaceWith(`
-        <div class="question-container container">
-        <form id="js-question-form">
-            <fieldset>
-            <p>${STORE[i].question}</p>
-            <div>
-                <input type='radio' id='option1' name='question1'>
-                <label for='option1'>${STORE[i].options[j]}</label>
-            </div>
-            <div>
-                <input type='radio' id='option2' name='question1'>
-                <label for='option2'>${STORE[i].options[k]}</label>
-            </div>
-            <div>
-                <input type='radio' id='option3' name='question1'>
-                <label for='option3'>${STORE[i].options[l]}</label>
-            </div>
-            <div>
-                <input type='radio' id='option4' name='question1'>
-                <label for='option4'>${STORE[i].options[m]}</label>
-            </div>
-            </fieldset> 
-        </form>
-        <button class="submit js-submit">Submit</button>
-        `);}
-    )};
-
-function handleSubmitQuestion() {
-
-}
-
-function handleShowCorrect() {
-    let correctAnswer= STORE[i].answer;
-    $('.outer-container').on('click', '.js-submit', function(event) {
-        event.preventDefault();
-        let choice = $('input[type=radio][name=question1]:checked').val();
-        if (choice === correctAnswer) {
-            $('.question-container').replaceWith(`<div class="container">
-            <h2>Correct!</h2>
-            <button class="next-question js-next">Next Question</button>
-        </div>
-        <p>Question 1/5</p>
-        <p>Score 10%</p>`)
-        } else {
-            $('.question-container').replaceWith(`<div class="container">
-            <h2>Sorry! That's incorrect</h2>
-            <button class="js-show-correct show-correct">Show the Answer</button>
-            <button class="next-question js-next">Next Question</button>
-            <p class="correct-answer">Justin Vernon</p>
-        </div>
-        <p>Question 1/5</p>
-        <p>Score 0%</p>`)
-        };
+function startQuiz() {
+    //this function should start the quiz
+    $('.js-start-button').click(function(e) {
+        e.preventDefault();
+        displayQuestion();
     });
+    console.log(`startQuiz successfully ran`);
+}
+
+function displayQuestion() {
+    //this function should display a new question and options
+    let question = STORE.questions[STORE.currentQuestion].question;
+    updateCurrentQuestion();
+    
+    $('.js-start-page').replaceWith(`<div class="question-container container">
+    <form id="js-question-form">
+        <fieldset>
+        <p>${question}</p>
+        <div>
+            <input type='radio' id='answer1' name='question1'>
+            <label for='answer1'>Justin Vernon</label>
+        </div>
+        <div>
+            <input type='radio' id='matthealy' name='question1'>
+            <label for='matthealy'>Matt Healy</label>
+        </div>
+        <div>
+            <input type='radio' id='francis' name='question1'>
+            <label for='francis'>Francis Starlite</label>
+        </div>
+        <div>
+            <input type='radio' id='kanye' name='question1'>
+            <label for='kanye'>Kanye West</label>
+        </div>
+        </fieldset> 
+    </form>
+    <button class="submit js-submit">Submit</button>
+</div>
+<p>Question: ${currentQuestion}</p>
+<p>Score 0%</p>`);
 };
 
-function handleNextQuestion() {
-    handleStartQuiz();
+
+function checkAnswer() {
+    //this function should check the user input and return either true or false
 }
 
-function handleRetakeQuiz() {
 
+function showResult() {
+    //depending on result of checkAnswer() return either the correct or incorrect result
 }
 
-function doAllFunctions() {
-    handleStartQuiz();
-    increaseI();
-    handleStartQuiz();
-    handleShowCorrect();
 
+function displayCorrectAnswer() {
+    //when user clicks show answer button, show the correct answer
 }
 
-$(doAllFunctions());
+
+function showFinalScore() {
+    //shows final score at the end of the question
+}
+
+function updateCurrentScore() {
+    //shows the current score on each question page
+}
+
+function updateCurrentQuestion() {
+    //adds to the currentQuestion key
+    STORE.currentQuestion += 1;
+}
+
+
+$(startQuiz());

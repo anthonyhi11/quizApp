@@ -1,4 +1,5 @@
-const STORE = [
+const STORE = {
+    questions: [
     { //question 1
         question: 'Who is the founding member of Bon Iver?',
         options: [
@@ -42,4 +43,7 @@ const STORE = [
             "Sh’Diah",
             '44 In Part'],
         answer: '44 In Part'
-    }];
+    }],
+    currentQuestion: 0,
+    score: 0
+};
