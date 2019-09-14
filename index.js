@@ -10,34 +10,24 @@ function startQuiz() {
 function displayQuestion() {
     //this function should display a new question and options
     let question = STORE.questions[STORE.currentQuestion].question;
-    updateCurrentQuestion();
-    
     $('.js-start-page').replaceWith(`<div class="question-container container">
     <form id="js-question-form">
         <fieldset>
-        <p>${question}</p>
-        <div>
-            <input type='radio' id='answer1' name='question1'>
-            <label for='answer1'>Justin Vernon</label>
-        </div>
-        <div>
-            <input type='radio' id='matthealy' name='question1'>
-            <label for='matthealy'>Matt Healy</label>
-        </div>
-        <div>
-            <input type='radio' id='francis' name='question1'>
-            <label for='francis'>Francis Starlite</label>
-        </div>
-        <div>
-            <input type='radio' id='kanye' name='question1'>
-            <label for='kanye'>Kanye West</label>
-        </div>
-        </fieldset> 
-    </form>
-    <button class="submit js-submit">Submit</button>
-</div>
-<p>Question: ${currentQuestion}</p>
-<p>Score 0%</p>`);
+        <p class='js-question'>${question}</p>
+        <p>Question: ${STORE.currentQuestion+1}</p>
+        <p>Score ${STORE.score}/5</p>`);
+        handleOptions();
+        updateCurrentQuestion();
+};
+
+function handleOptions() {
+    
+    for (let i=0; i<STORE.questions[STORE.currentQuestion].options.length; i++){
+        let option = STORE.questions[STORE.currentQuestion].options[i];
+        $('.js-question').append(`<div>
+        <input type='radio' id='${option}' name='question'>
+        <label for='answer1'>${option}</label>
+    </div>`)};    
 };
 
 
@@ -61,7 +51,8 @@ function showFinalScore() {
 }
 
 function updateCurrentScore() {
-    //shows the current score on each question page
+    //adds to the score. run this function IF they get it right
+    STORE.score += 1;
 }
 
 function updateCurrentQuestion() {
