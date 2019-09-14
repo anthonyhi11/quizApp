@@ -1,5 +1,3 @@
-let i = 0;
-
 function startQuiz() {
     //this function should start the quiz
     $('.js-start-button').click(function(e) {
