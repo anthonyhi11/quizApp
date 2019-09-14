@@ -41,9 +41,9 @@ function showResult() {
     let correctAnswer = STORE.questions[STORE.currentQuestion].answer;
     console.log(correctAnswer);
     $('.js-submit').click(function(e) {
-        let userAnswer = $('input[name="option"]:checked').val();
-        console.log(userAnswer);
         e.preventDefault();
+        let userAnswer = $('input[type="radio"]:checked').val();
+        console.log(userAnswer);
         if (userAnswer == correctAnswer) {
             console.log('Congrats!')
         } else {
