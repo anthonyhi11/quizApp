@@ -21,8 +21,9 @@ function displayQuestion() {
     <p>Question: ${STORE.currentQuestion+1}</p>
     <p>Score ${STORE.score}/5</p>`);
         handleOptions();
-        updateCurrentQuestion();
         showResult();
+        updateCurrentQuestion();
+        
 };
 
 function handleOptions() {
@@ -30,7 +31,7 @@ function handleOptions() {
     for (let i=0; i<STORE.questions[STORE.currentQuestion].options.length; i++){
         let option = STORE.questions[STORE.currentQuestion].options[i];
         $('.js-question').append(`<div>
-        <input type='radio' id='${option}' name='question'>
+        <input type='radio' id='${option}' name='option'>
         <label for='${option}'>${option}</label>
     </div>`)};    
 };
@@ -38,8 +39,10 @@ function handleOptions() {
 function showResult() {
     //checks answer and should return either the correct or incorrect result
     let correctAnswer = STORE.questions[STORE.currentQuestion].answer;
-    let userAnswer = $('.radio').val();
+    console.log(correctAnswer);
     $('.js-submit').click(function(e) {
+        let userAnswer = $('input[name="option"]:checked').val();
+        console.log(userAnswer);
         e.preventDefault();
         if (userAnswer == correctAnswer) {
             console.log('Congrats!')
