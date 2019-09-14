@@ -31,7 +31,7 @@ function handleOptions() {
     for (let i=0; i<STORE.questions[STORE.currentQuestion].options.length; i++){
         let option = STORE.questions[STORE.currentQuestion].options[i];
         $('.js-question').append(`<div>
-        <input type='radio' id='${option}' name='option'>
+        <input type='radio' id=${option} name='option' value='${option}'>
         <label for='${option}'>${option}</label>
     </div>`)};    
 };
