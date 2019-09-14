@@ -45,8 +45,15 @@ function showResult() {
         let userAnswer = $('input[type="radio"]:checked').val();
         console.log(userAnswer);
         if (userAnswer == correctAnswer) {
-            console.log('Congrats!')
-        } else {
+            updateCurrentScore();
+            $('.question-container').replaceWith(`<div class="container">
+            <h2>Correct!</h2>
+            <button class="next-question js-next">Next Question</button>
+        </div>
+        <p>Question 1/5</p>
+        <p>Score ${STORE.score}/5</p>
+    </div>`);} 
+    else {
             console.log('BOOO');
         };
     });
