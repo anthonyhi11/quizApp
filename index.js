@@ -10,7 +10,7 @@ function startQuiz() {
 function displayQuestion() {
     //this function should display a new question
     let question = STORE.questions[STORE.currentQuestion].question;
-    $('.js-start-page').replaceWith(`<div class="question-container container">
+    $('.outer-container').replaceWith(`<div class='outer-container'><div class="question-container container">
     <form id="js-question-form" type='submit' required>
         <fieldset>
             <p class='js-question'>${question}</p>
@@ -20,7 +20,8 @@ function displayQuestion() {
     </form>
     </div>
     <p>Question: ${STORE.currentQuestion+1}/5</p>
-    <p>Score ${STORE.score}%</p>`);
+    <p>Score ${STORE.score}%</p>
+    </div>`);
         handleOptions();
         showResult();
         updateCurrentQuestion();
@@ -37,7 +38,13 @@ function handleOptions() {
     </div>`).insertAfter('.js-question')};    
 };
 
-
+function nextQuestion() {
+    $('.js-next').click(function(event) {
+        event.preventDefault();
+        displayQuestion();
+        console.log(`nextQuestion ran!`);
+    });
+}
 function showResult() {
     //checks answer and should return either the correct or incorrect result
     let correctAnswer = STORE.questions[STORE.currentQuestion].answer;
@@ -54,7 +61,8 @@ function showResult() {
         </div>
         <p>Question ${STORE.currentQuestion}/5</p>
         <p>Score ${STORE.score}%</p>
-    </div>`);} 
+    </div>`);
+    nextQuestion();} 
     else {
         $('.outer-container').replaceWith(`<div class="outer-container"><div class="container">
         <h2>Sorry! That's incorrect</h2>
@@ -66,7 +74,7 @@ function showResult() {
     <p>Score ${STORE.score}%</p>
 </div>`)
             console.log('BOOO');
-        };
+        nextQuestion();};
     });
 }
 
