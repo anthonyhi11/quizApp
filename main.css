@@ -24,7 +24,7 @@ body {
     border-radius: 10px;
 }
 .start-button {
-    margin-top: 50px;
+    margin-top: 15px;
 }
 .outer-container p {
     text-align: center;
@@ -37,4 +37,12 @@ fieldset {
 
 .hidden {
     display: none;
+}
+
+#justin-face {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 140px;
+    border-radius: 10px;
 }
