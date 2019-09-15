@@ -4,7 +4,6 @@ function startQuiz() {
         e.preventDefault();
         displayQuestion();
     });
-    console.log(`startQuiz successfully ran`);
 }
 
 function displayQuestion() {
@@ -24,8 +23,7 @@ function displayQuestion() {
     </div>`);
         handleOptions();
         showResult();
-        updateCurrentQuestion();
-        
+        updateCurrentQuestion(); 
 };
 
 function handleOptions() {
@@ -39,11 +37,14 @@ function handleOptions() {
 };
 
 function nextQuestion() {
-    $('.js-next').click(function(event) {
-        event.preventDefault();
-        displayQuestion();
-        console.log(`nextQuestion ran!`);
-    });
+    if (STORE.currentQuestion <=4) {
+        $('.js-next').click(function(event) {
+            event.preventDefault();
+            displayQuestion();
+        });
+    } else {
+        showFinalScore();
+    };
 }
 function showResult() {
     //checks answer and should return either the correct or incorrect result
@@ -83,14 +84,25 @@ function displayCorrectAnswer() {
     //when user clicks show answer button, show the correct answer
     $('.js-show-correct').click(function(event) {
         event.preventDefault();
-        $('p.correct-answer').toggleClass('hidden');
-        console.log('display correct answer ran')
+        $('p.correct-answer').toggleClass('hidden'); 
     });   
 }
 
 
 function showFinalScore() {
     //shows final score at the end of the question
+    $('.js-next').click(function(event) {
+        event.preventDefault();
+        $('.outer-container').replaceWith(`
+        <div class="outer-container">
+            <div class="container">
+                <h2>Congrats! You're insufferable!</h2>
+                <h3>Final Score: ${STORE.score}%</h3>
+                <button class="js-restart restart">Restart Quiz</button>
+            </div>
+            <p class="credits">Quiz by Anthony. I do not own images.</p>
+        </div>`); 
+});
 }
 
 function updateCurrentScore() {
