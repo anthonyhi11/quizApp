@@ -11,7 +11,7 @@ function displayQuestion() {
     //this function should display a new question
     let question = STORE.questions[STORE.currentQuestion].question;
     $('.outer-container').replaceWith(`<div class='outer-container'><div class="question-container container">
-    <form id="js-question-form" type='submit' required>
+    <form id="js-question-form" type='submit'>
         <fieldset>
             <p class='js-question'>${question}</p>
         
@@ -33,7 +33,7 @@ function handleOptions() {
     for (let i=0; i<STORE.questions[STORE.currentQuestion].options.length; i++){
         let option = STORE.questions[STORE.currentQuestion].options[i];
         $(`<div class='options'>
-        <input type='radio' id=${option} name='option' value='${option}' required>
+        <input type='radio' id=${option} name='option' value='${option}' required/>
         <label for='${option}'>${option}</label>
     </div>`).insertAfter('.js-question')};    
 };
@@ -68,19 +68,24 @@ function showResult() {
         <h2>Sorry! That's incorrect</h2>
         <button class="js-show-correct show-correct">Show the Answer</button>
         <button class="next-question js-next">Next Question</button>
-        <p class="correct-answer"><p>${correctAnswer}</p>
+        <p class="correct-answer hidden">${correctAnswer}</p>
     </div>
     <p>Question ${STORE.currentQuestion}/5</p>
     <p>Score ${STORE.score}%</p>
 </div>`)
-            console.log('BOOO');
+        displayCorrectAnswer();
         nextQuestion();};
-    });
+    }); displayCorrectAnswer();
 }
 
 
 function displayCorrectAnswer() {
     //when user clicks show answer button, show the correct answer
+    $('.js-show-correct').click(function(event) {
+        event.preventDefault();
+        $('p.correct-answer').toggleClass('hidden');
+        console.log('display correct answer ran')
+    });   
 }
 
 

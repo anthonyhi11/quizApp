@@ -30,3 +30,7 @@ body {
 fieldset {
     border:none;
 }
+
+.hidden {
+    display: none;
+}
