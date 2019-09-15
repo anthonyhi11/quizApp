@@ -23,7 +23,7 @@ function displayQuestion() {
     </div>`);
         handleOptions();
         showResult();
-        updateCurrentQuestion(); 
+        updateCurrentQuestion();
 };
 
 function handleOptions() {
@@ -37,7 +37,7 @@ function handleOptions() {
 };
 
 function nextQuestion() {
-    if (STORE.currentQuestion <=4) {
+    if (STORE.currentQuestion <= 4) {
         $('.js-next').click(function(event) {
             event.preventDefault();
             displayQuestion();
@@ -49,11 +49,9 @@ function nextQuestion() {
 function showResult() {
     //checks answer and should return either the correct or incorrect result
     let correctAnswer = STORE.questions[STORE.currentQuestion].answer;
-    console.log(correctAnswer);
     $('.js-submit').click(function(e) {
         e.preventDefault();
         let userAnswer = $('input[type="radio"]:checked').val();
-        console.log(userAnswer);
         if (userAnswer == correctAnswer) {
             updateCurrentScore();
             $('.outer-container').replaceWith(`<div class="outer-container"><div class="container">
@@ -102,7 +100,17 @@ function showFinalScore() {
             </div>
             <p class="credits">Quiz by Anthony. I do not own images.</p>
         </div>`); 
+        restartQuiz();
 });
+}
+
+function restartQuiz() {
+    $('.js-restart').click(function(event) {
+        event.preventDefault();
+        STORE.score = 0;
+        STORE.currentQuestion = 0;
+        displayQuestion();
+    });
 }
 
 function updateCurrentScore() {
@@ -114,6 +122,5 @@ function updateCurrentQuestion() {
     //adds to the currentQuestion key
     STORE.currentQuestion += 1;
 }
-
 
 $(startQuiz());
