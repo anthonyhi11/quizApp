@@ -49,10 +49,10 @@ function nextQuestion() {
 function showResult() {
     //checks answer and should return either the correct or incorrect result
     let correctAnswer = STORE.questions[STORE.currentQuestion].answer;
-    $('.js-submit').click(function(e) {
+    $('.js-question-form').submit(function(e) {
         e.preventDefault();
         let userAnswer = $('input[type="radio"]:checked').val();
-        if (userAnswer == correctAnswer) {
+        if (userAnswer === correctAnswer) {
             updateCurrentScore();
             $('.outer-container').replaceWith(`<div class="outer-container"><div class="container">
             <h2>Correct!</h2>

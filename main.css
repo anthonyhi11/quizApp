@@ -11,6 +11,8 @@ body {
     height: 250px;
     margin: auto;
     margin-top: 10px;
+    background-color: white;
+    border-radius: 10px;
 }
 .outer-container {
     padding:10px;
@@ -18,6 +20,8 @@ body {
     border: 1px solid black;
     width: 550px;
     height: 350px;
+    background: url('images/background.jpeg');
+    border-radius: 10px;
 }
 .start-button {
     margin-top: 50px;
