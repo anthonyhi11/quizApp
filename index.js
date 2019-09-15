@@ -33,7 +33,7 @@ function handleOptions() {
     for (let i=0; i<STORE.questions[STORE.currentQuestion].options.length; i++){
         let option = STORE.questions[STORE.currentQuestion].options[i];
         $(`<div class='options'>
-        <input type='radio' id=${option} name='option' value='${option}'>
+        <input type='radio' id=${option} name='option' value='${option}' required>
         <label for='${option}'>${option}</label>
     </div>`).insertAfter('.js-question')};    
 };
@@ -68,7 +68,7 @@ function showResult() {
         <h2>Sorry! That's incorrect</h2>
         <button class="js-show-correct show-correct">Show the Answer</button>
         <button class="next-question js-next">Next Question</button>
-        <p class="correct-answer">Justin Vernon</p>
+        <p class="correct-answer"><p>${correctAnswer}</p>
     </div>
     <p>Question ${STORE.currentQuestion}/5</p>
     <p>Score ${STORE.score}%</p>
