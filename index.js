@@ -10,12 +10,12 @@ function displayQuestion() {
     //this function should display a new question
     let question = STORE.questions[STORE.currentQuestion].question;
     $('.outer-container').replaceWith(`<div class='outer-container'><div class="question-container container">
-    <form id="js-question-form" type='submit'>
+    <form class="js-question-form">
         <fieldset>
             <p class='js-question'>${question}</p>
         
         </fieldset> 
-        <button class="submit js-submit">Submit</button>
+        <button type='submit' class="submit js-submit">Submit</button>
     </form>
     </div>
     <p>Question: ${STORE.currentQuestion+1}/5</p>
@@ -31,7 +31,7 @@ function handleOptions() {
     for (let i=0; i<STORE.questions[STORE.currentQuestion].options.length; i++){
         let option = STORE.questions[STORE.currentQuestion].options[i];
         $(`<div class='options'>
-        <input type='radio' id=${option} name='option' value='${option}' required/>
+        <input type='radio' id=${option} name='option' value='${option}' required>
         <label for='${option}'>${option}</label>
     </div>`).insertAfter('.js-question')};    
 };
