@@ -18,8 +18,8 @@ function displayQuestion() {
         <button type='submit' class="submit js-submit">Submit</button>
     </form>
     </div>
-    <p>Question: ${STORE.currentQuestion+1}/5</p>
-    <p>Score ${STORE.score}%</p>
+    <p class='bottom-question'>Question: ${STORE.currentQuestion+1}/5</p>
+    <p class='bottom-score'>Score ${STORE.score}%</p>
     </div>`);
         handleOptions();
         showResult();
@@ -58,8 +58,8 @@ function showResult() {
             <h2>Correct!</h2>
             <button class="next-question js-next">Next Question</button>
         </div>
-        <p>Question ${STORE.currentQuestion}/5</p>
-        <p>Score ${STORE.score}%</p>
+        <p class='bottom-question'>Question ${STORE.currentQuestion}/5</p>
+        <p class='bottom-score'>Score ${STORE.score}%</p>
     </div>`);
     nextQuestion();} 
     else {
@@ -69,8 +69,8 @@ function showResult() {
         <button class="next-question js-next">Next Question</button>
         <p class="correct-answer hidden">${correctAnswer}</p>
     </div>
-    <p>Question ${STORE.currentQuestion}/5</p>
-    <p>Score ${STORE.score}%</p>
+    <p class='bottom-question'>Question ${STORE.currentQuestion}/5</p>
+    <p class='bottom-score'>Score ${STORE.score}%</p>
 </div>`)
         displayCorrectAnswer();
         nextQuestion();};

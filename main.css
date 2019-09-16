@@ -19,7 +19,7 @@ body {
     margin: 50px;
     border: 1px solid black;
     width: 550px;
-    height: 350px;
+    height: 330px;
     background: url('images/background.jpeg');
     border-radius: 10px;
 }
@@ -45,4 +45,23 @@ fieldset {
     margin-right: auto;
     height: 140px;
     border-radius: 10px;
+}
+.bottom-question {
+    display: inline-block;
+    background-color: white;
+    padding: 3px;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+.bottom-score {
+    display: inline-block;
+    background-color: white;
+    padding: 3px;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+.credits {
+    
 }
