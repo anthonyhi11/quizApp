@@ -1,5 +1,61 @@
 
+.container {
+    border:black 1px solid;
+    padding: 15px;
+    text-align: center;
+    width: 350px;
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.outer-container {
+    padding:10px;
+    border: 1px solid black;
+    width: 375px;
+    height: auto;
+    background: url('images/background.jpeg');
+    border-radius: 10px;
+    text-align: center;
+}
 body {
+    width: 375px;
+    height: 700px;
+    font-family: 'Barlow', sans-serif;
+    font-style: normal;
+}
+h1 {
+    font-size: 25px;
+}
+.bottom-question, .bottom-score {
+    display: inline-block;
+    background-color: white;
+    border: 2px black solid;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 15px;
+}
+fieldset {
+    border: none;
+}
+button {
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*body {
     height: 500px;
     width: 500px;
 }
@@ -34,11 +90,11 @@ body {
 fieldset {
     border:none;
 }
-
+*/
 .hidden {
     display: none;
 }
-
+/*
 #justin-face {
     display: block;
     margin-left: auto;
@@ -64,4 +120,4 @@ fieldset {
 }
 .credits {
     
-}
+}*/
