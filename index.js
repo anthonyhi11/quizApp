@@ -26,7 +26,7 @@ function displayQuestion() {
         updateCurrentQuestion();
 };
 
-function handleOptions() {
+/*function handleOptions() {
     // this function shows the options
     for (let i=0; i<STORE.questions[STORE.currentQuestion].options.length; i++){
         let option = STORE.questions[STORE.currentQuestion].options[i];
@@ -34,7 +34,18 @@ function handleOptions() {
         <input type='radio' id=${option} name='option' value='${option}' class='radio-options' required>
         <label for='${option}' class='options'>${option}</label>
     </div>`).insertAfter('.js-question')};    
-};
+};*/
+
+function handleOptions () {
+    let options = STORE.questions[STORE.currentQuestion].options;
+    let optionArr = options.map(option =>`<div class='options'>
+    <input type='radio' id=${option} name='option' value='${option}' class='radio-options' required>
+    <label for='${option}' class='options'>${option}</label>
+</div>`);
+    let list = optionArr.join('');
+    $(list).insertAfter('.js-question');
+}
+
 
 function nextQuestion() {
     if (STORE.currentQuestion <= 4) {
