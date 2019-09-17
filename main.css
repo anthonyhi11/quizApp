@@ -3,7 +3,7 @@
     border:black 1px solid;
     padding: 15px;
     text-align: center;
-    width: 350px;
+    min-width: 300px;
     height: auto;
     background-color: white;
     border-radius: 10px;
@@ -13,7 +13,7 @@
 .outer-container {
     padding:10px;
     border: 1px solid black;
-    width: 375px;
+    width: fit-content;
     height: auto;
     background: url('images/background.jpeg');
     border-radius: 10px;
@@ -28,7 +28,7 @@ body {
 h1 {
     font-size: 25px;
 }
-.bottom-question, .bottom-score {
+.bottom-question, .bottom-score, .credits {
     display: inline-block;
     background-color: white;
     border: 2px black solid;
@@ -43,7 +43,15 @@ button {
     font-size: 14px;
     border-radius: 10px;
 }
-
+.radio-options {
+    margin: 3px;
+}
+.js-question {
+    font-size: 17px;
+}
+.options {
+    font-size: 15px;
+}
 
 
 

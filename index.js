@@ -31,8 +31,8 @@ function handleOptions() {
     for (let i=0; i<STORE.questions[STORE.currentQuestion].options.length; i++){
         let option = STORE.questions[STORE.currentQuestion].options[i];
         $(`<div class='options'>
-        <input type='radio' id=${option} name='option' value='${option}' required>
-        <label for='${option}'>${option}</label>
+        <input type='radio' id=${option} name='option' value='${option}' class='radio-options' required>
+        <label for='${option}' class='options'>${option}</label>
     </div>`).insertAfter('.js-question')};    
 };
 
@@ -91,6 +91,7 @@ function showFinalScore() {
     //shows final score at the end of the question
     $('.js-next').click(function(event) {
         event.preventDefault();
+        if (STORE.score >= 80) {
         $('.outer-container').replaceWith(`
         <div class="outer-container">
             <div class="container">
@@ -99,7 +100,18 @@ function showFinalScore() {
                 <button class="js-restart restart">Restart Quiz</button>
             </div>
             <p class="credits">Quiz by Anthony. I do not own images.</p>
-        </div>`); 
+        </div>`);}
+        else {
+            $('.outer-container').replaceWith(`
+        <div class="outer-container">
+            <div class="container">
+                <h2>Ouch! Try growing a beard!</h2>
+                <h3>Final Score: ${STORE.score}%</h3>
+                <button class="js-restart restart">Restart Quiz</button>
+            </div>
+            <p class="credits">Quiz by Anthony. I do not own images.</p>
+        </div>`);
+        } 
         restartQuiz();
 });
 }
