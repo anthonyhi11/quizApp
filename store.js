@@ -18,7 +18,7 @@ const STORE = {
         answer: 'April Base'
     },
     { // question 3
-        question: "Bon Iver’s first album was famously recorded where?",
+        question: "Bon Iver’s first album was recorded where?",
         options: [
             'On a yacht anchored in the Bahamas',
             'In a cabin during a Wisconsin winter',

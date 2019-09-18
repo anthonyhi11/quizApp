@@ -66,7 +66,7 @@ function showResult() {
         if (userAnswer === correctAnswer) {
             updateCurrentScore();
             $('.outer-container').replaceWith(`<div class="outer-container"><div class="container">
-            <h2>Correct!</h2>
+            <h2 class="correct">Correct!</h2>
             <button class="next-question js-next">Next Question</button>
         </div>
         <p class='bottom-question'>Question ${STORE.currentQuestion}/5</p>
@@ -75,7 +75,7 @@ function showResult() {
     nextQuestion();} 
     else {
         $('.outer-container').replaceWith(`<div class="outer-container"><div class="container">
-        <h2>Sorry! That's incorrect</h2>
+        <h2 class="incorrect">Sorry! That's incorrect</h2>
         <button class="js-show-correct show-correct">Show the Answer</button>
         <button class="next-question js-next">Next Question</button>
         <p class="correct-answer hidden">${correctAnswer}</p>
@@ -109,6 +109,7 @@ function showFinalScore() {
                 <h2>Congrats! You're insufferable!</h2>
                 <h3>Final Score: ${STORE.score}%</h3>
                 <button class="js-restart restart">Restart Quiz</button>
+                <img src="images/12_ShDIAH_400px_04.gif" class="final-image">
             </div>
             <p class="credits">Quiz by Anthony. I do not own images.</p>
         </div>`);}
@@ -119,6 +120,7 @@ function showFinalScore() {
                 <h2>Ouch! Try growing a beard!</h2>
                 <h3>Final Score: ${STORE.score}%</h3>
                 <button class="js-restart restart">Restart Quiz</button>
+                <img src="images/crying.gif" class="final-image">
             </div>
             <p class="credits">Quiz by Anthony. I do not own images.</p>
         </div>`);

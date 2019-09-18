@@ -1,7 +1,10 @@
 
+/*for small screens */
+
+
 .container {
     border:black 1px solid;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     min-width: 300px;
     height: auto;
@@ -11,19 +14,27 @@
     margin-right: auto;
 }
 .outer-container {
-    padding:10px;
+    position: fixed;
+    padding:5px;
     border: 1px solid black;
-    width: fit-content;
+    width: 340px;
     height: auto;
     background: url('images/background.jpeg');
     border-radius: 10px;
     text-align: center;
+    top: 50%;
+    left: 50%;
+    margin-left: -175px;
+    margin-top: -300px;
+    
 }
 body {
     width: 375px;
     height: 700px;
     font-family: 'Barlow', sans-serif;
     font-style: normal;
+    background: url('images/butterflies05.gif');
+    
 }
 h1 {
     font-size: 24px;
@@ -51,40 +62,143 @@ button {
     font-size: 15px;
     padding: 3px;
 }
+.hidden {
+    display: none;
+}
+img.final-image {
+    width: 220px;
+    height: 110px;
+    display: block;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+@media only screen and (min-width: 550px) {
+    body {
+        background: url('images/butterflies-1.gif');
+        font-family: 'Barlow', sans-serif;
+        font-style: normal;
+        
+    }
+    .container {
+        border: black 1px solid;
+        padding: 15px;
+        text-align: center;
+        width: 450px;
+        height: 250px;
+        background-color: white;
+        border-radius: 10px;
+    }
+    .outer-container {
+        display: inline-block;
+        padding:10px;
+        margin-top: 20px;
+        border: 1px solid black;
+        width: 500px;
+        height: 350px;
+        background: url('images/background.jpeg');
+        border-radius: 10px;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-top: -300px;
+        margin-left: -250px;
+    }
+    .start-button {
+        margin-top: 15px;
+    }
+    .outer-container p {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    
+    fieldset {
+        border:none;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    #justin-face {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 140px;
+        border-radius: 10px;
+    }
+    .bottom-question, .bottom-score, .credits{
+        display: inline-block;
+        background-color: white;
+        padding: 6px;
+        border-radius: 10px;
+        margin-top: 20px;
+        text-align: center;
+        font-size: 20px;
+    }
+    
+    .js-question {
+        font-size: 25px;
+        margin-top: 5px;
+    }
+    .options {
+        font-size: 18px;
+        padding: 3px;
+        margin-bottom: 8px;
+    }
+    
+    img.final-image {
+        width: 220px;
+        height: 110px;
+        display: block;
+        margin-left: auto;
+        margin-right:auto;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+    .correct, .incorrect {
+        margin-top: 50px;
+        padding: 15px;
+    }
+    .js-show-answer, .js-next {
+        margin: 15px;
+    }
+}
 
 
+@media only screen and (min-width: 800px) {
 
-
-
-
-
-
-
-
-
-/*body {
-    height: 500px;
-    width: 500px;
+body {
+    background: url('images/butterflies-1.gif');
+    font-family: 'Barlow', sans-serif;
+    font-style: normal;
+    
 }
 .container {
     border: black 1px solid;
     padding: 15px;
     text-align: center;
-    width: 500px;
+    width: 650px;
     height: 250px;
-    margin: auto;
-    margin-top: 10px;
     background-color: white;
     border-radius: 10px;
 }
 .outer-container {
+    display: inline-block;
     padding:10px;
-    margin: 50px;
+    margin-top: 20px;
     border: 1px solid black;
-    width: 550px;
-    height: 330px;
+    width: 700px;
+    height: 350px;
     background: url('images/background.jpeg');
     border-radius: 10px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -300px;
+    margin-left: -350px;
 }
 .start-button {
     margin-top: 15px;
@@ -97,11 +211,11 @@ button {
 fieldset {
     border:none;
 }
-*/
+
 .hidden {
     display: none;
 }
-/*
+
 #justin-face {
     display: block;
     margin-left: auto;
@@ -109,22 +223,40 @@ fieldset {
     height: 140px;
     border-radius: 10px;
 }
-.bottom-question {
+.bottom-question, .bottom-score, .credits{
     display: inline-block;
     background-color: white;
-    padding: 3px;
+    padding: 6px;
     border-radius: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: center;
+    font-size: 20px;
 }
-.bottom-score {
-    display: inline-block;
-    background-color: white;
+
+.js-question {
+    font-size: 30px;
+    margin-top: 5px;
+}
+.options {
+    font-size: 20px;
     padding: 3px;
-    border-radius: 10px;
-    margin-top: 10px;
-    text-align: center;
+    margin-bottom: 8px;
 }
-.credits {
-    
-}*/
+
+img.final-image {
+    width: 220px;
+    height: 110px;
+    display: block;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.correct, .incorrect {
+    margin-top: 50px;
+    padding: 15px;
+}
+.js-show-answer, .js-next {
+    margin: 15px;
+}
+}
